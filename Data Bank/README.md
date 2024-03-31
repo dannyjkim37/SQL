@@ -14,3 +14,13 @@ SELECT region_id, region_name
 FROM data_bank.regions;
 ````
 ![Screenshot 2024-03-31 171500](https://github.com/dannyjkim37/SQL/assets/160215128/6babc4d9-b177-434a-9854-34d40c6ce935)
+
+
+**Table 2: `customer_nodes`**
+
+'customer_nodes' table showing
+````sql
+SELECT *
+FROM data_bank.customer_nodes;
+````
+![Screenshot 2024-03-31 181310](https://github.com/dannyjkim37/SQL/assets/160215128/f60469a1-3d01-4a90-8121-b7cd112d2e3b)
