@@ -1,3 +1,4 @@
+***
 ## Data Bank Case Study
 ## Business Goal
 Data Bank is a new banking platform that 
@@ -35,3 +36,8 @@ SELECT customer_id, txn_date, txn_type, txn_amount
 FROM data_bank.customer_transactions;
 ````
 ![t3](https://github.com/dannyjkim37/SQL/assets/160215128/a536bf98-53e0-497c-94fb-416e7598b6ab)
+
+
+***
+## Answering Questions and Data Exploration 
+
