@@ -14,7 +14,7 @@ Data Bank is a new banking platform that
 SELECT region_id, region_name
 FROM data_bank.regions;
 ````
-![Screenshot 2024-03-31 214411](https://github.com/dannyjkim37/SQL/assets/160215128/5caf5f10-a9d0-4b99-a094-5dba09351542)
+![t1](https://github.com/dannyjkim37/SQL/assets/160215128/2898ec26-748f-4a5f-b753-ee018e6d2304)
 
 
 **Table 2: customer_nodes**
@@ -24,7 +24,7 @@ FROM data_bank.regions;
 SELECT customer_id, region_id, node_id, start_date, end_date
 FROM data_bank.customer_nodes;
 ````
-![Screenshot 2024-03-31 181310](https://github.com/dannyjkim37/SQL/assets/160215128/f60469a1-3d01-4a90-8121-b7cd112d2e3b)
+![t2](https://github.com/dannyjkim37/SQL/assets/160215128/eb5375c1-8411-47b1-a08a-13d85a386aa0)
 
 
 **Table 3: customer_transactions**
@@ -34,4 +34,4 @@ FROM data_bank.customer_nodes;
 SELECT customer_id, txn_date, txn_type, txn_amount
 FROM data_bank.customer_transactions;
 ````
-![t3](https://github.com/dannyjkim37/SQL/assets/160215128/70928a1b-b715-461e-9bf3-3954feb16192)
+![t3](https://github.com/dannyjkim37/SQL/assets/160215128/a536bf98-53e0-497c-94fb-416e7598b6ab)
