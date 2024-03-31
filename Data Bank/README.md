@@ -40,4 +40,5 @@ FROM data_bank.customer_transactions;
 
 ***
 ## Answering Questions and Data Exploration 
-
+**Customer Nodes Exploration**
+1. How many unique nodes are there on the Data Bank system?
