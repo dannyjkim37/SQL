@@ -13,7 +13,7 @@ Data Bank is a new banking platform that
 SELECT region_id, region_name
 FROM data_bank.regions;
 ````
-![Screenshot 2024-03-31 171500](https://github.com/dannyjkim37/SQL/assets/160215128/6babc4d9-b177-434a-9854-34d40c6ce935)
+![Screenshot 2024-03-31 214411](https://github.com/dannyjkim37/SQL/assets/160215128/5caf5f10-a9d0-4b99-a094-5dba09351542)
 
 
 **Table 2: `customer_nodes`**
