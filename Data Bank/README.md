@@ -46,3 +46,27 @@ FROM data_bank.customer_transactions;
 SELECT COUNT(DISTINCT node_id) AS unique_nodes
 FROM data_bank.customer_nodes;
 ````
+![q1](https://github.com/dannyjkim37/SQL/assets/160215128/1bbac3b9-2de4-4a29-963b-045dcf9d5bf1)
+
+2. What is the number of nodes per region?
+````sql
+SELECT
+  regions.region_name, 
+  COUNT(DISTINCT customers.node_id) AS node_count
+FROM data_bank.regions
+JOIN data_bank.customer_nodes AS customers
+  ON regions.region_id = customers.region_id
+GROUP BY regions.region_name;
+````
+![q2](https://github.com/dannyjkim37/SQL/assets/160215128/ccaa68dd-97b1-463e-b49c-36ebf1c3762a)
+
+3. How many customers are allocated to each region?
+````sql
+SELECT 
+  region_id, 
+  COUNT(customer_id) AS customer_count
+FROM data_bank.customer_nodes
+GROUP BY region_id
+ORDER BY region_id;
+````
+![q3](https://github.com/dannyjkim37/SQL/assets/160215128/3e3cbe64-9653-4a0b-b9a1-1a2d5427e8ca)
