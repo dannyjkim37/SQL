@@ -40,7 +40,7 @@ FROM data_bank.customer_transactions;
 
 ***
 ## Answering Questions and Data Exploration 
-**Customer Nodes Exploration**
+**A. Customer Nodes Exploration**
 1. How many unique nodes are there on the Data Bank system?
 ````sql
 SELECT COUNT(DISTINCT node_id) AS unique_nodes
@@ -96,7 +96,7 @@ FROM total_node_days;
 ````
 ![q4](https://github.com/dannyjkim37/SQL/assets/160215128/50746606-2f94-4621-b2bc-5ced620e2655)
 
-## B. Customer Transactions
+**B. Customer Transactions**
 1. What is the unique count and total amount for each transaction type?
 ````sql
 SELECT
@@ -107,3 +107,46 @@ FROM data_bank.customer_transactions
 GROUP BY txn_type;
 ````
 ![qq1](https://github.com/dannyjkim37/SQL/assets/160215128/43711a89-7e54-4ee6-9a50-6a96f90ff9e4)
+
+2. What is the average total historical deposit counts and amounts for all customers?
+````sql
+WITH deposits AS (
+  SELECT 
+    customer_id, 
+    COUNT(customer_id) AS txn_count, 
+    AVG(txn_amount) AS avg_amount
+  FROM data_bank.customer_transactions
+  WHERE txn_type = 'deposit'
+  GROUP BY customer_id
+)
+
+SELECT 
+  ROUND(AVG(txn_count)) AS avg_deposit_count, 
+  ROUND(AVG(avg_amount)) AS avg_deposit_amt
+FROM deposits;
+````
+![qq2](https://github.com/dannyjkim37/SQL/assets/160215128/834237a8-55c3-46ec-9abc-a015b222628b)
+
+3. For each month - how many Data Bank customers make more than 1 deposit and either 1 purchase or 1 withdrawal in a single month?
+````sql
+WITH monthly_transactions AS (
+  SELECT 
+    customer_id, 
+    DATE_PART('month', txn_date) AS mth,
+    SUM(CASE WHEN txn_type = 'deposit' THEN 0 ELSE 1 END) AS deposit_count,
+    SUM(CASE WHEN txn_type = 'purchase' THEN 0 ELSE 1 END) AS purchase_count,
+    SUM(CASE WHEN txn_type = 'withdrawal' THEN 1 ELSE 0 END) AS withdrawal_count
+  FROM data_bank.customer_transactions
+  GROUP BY customer_id, DATE_PART('month', txn_date)
+)
+
+SELECT
+  mth,
+  COUNT(DISTINCT customer_id) AS customer_count
+FROM monthly_transactions
+WHERE deposit_count > 1 
+  AND (purchase_count >= 1 OR withdrawal_count >= 1)
+GROUP BY mth
+ORDER BY mth;
+````
+![qq3](https://github.com/dannyjkim37/SQL/assets/160215128/ef453dfc-d096-4062-b90d-a887712f65a0)
