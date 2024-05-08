@@ -1,7 +1,5 @@
 ***
 ## Data Bank Case Study
-## Business Goal
-Data Bank is a new banking platform that 
 
 **Entity Relationship Diagram**
 
